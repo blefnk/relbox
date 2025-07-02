@@ -1,0 +1,17 @@
+{
+  "recommendations": [
+    "aaron-bond.better-comments",
+    "biomejs.biome",
+    "bradlc.vscode-tailwindcss",
+    "chunsen.bracket-select",
+    "davidanson.vscode-markdownlint",
+    "dbaeumer.vscode-eslint",
+    "fabiospampinato.vscode-open-multiple-files",
+    "lokalise.i18n-ally",
+    "rust-lang.rust-analyzer",
+    "tauri-apps.tauri-vscode",
+    "usernamehw.errorlens",
+    "yzhang.markdown-all-in-one",
+    "ms-vscode.extension-test-runner"
+  ]
+}

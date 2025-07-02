@@ -1,0 +1,79 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "out",
+    "target": "ES2022",
+    "lib": [
+      "ES2022",
+      "dom",
+      "dom.iterable"
+    ],
+    "allowJs": true,
+    "module": "preserve",
+    "skipLibCheck": true,
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "verbatimModuleSyntax": true,
+    "esModuleInterop": true,
+    "incremental": true,
+    "moduleDetection": "force",
+    "useDefineForClassFields": true,
+    "allowImportingTsExtensions": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": [
+        "./shared/*"
+      ],
+      "~/*": [
+        "src-old/*"
+      ],
+      "~lynx/*": [
+        "./src-lynx/*"
+      ],
+      "~next/*": [
+        "./src-next/*"
+      ],
+      "~tauri/*": [
+        "./src-tauri/*"
+      ],
+      "~vsce/*": [
+        "./src-vsce/*"
+      ],
+      "~wxt/*": [
+        "./src-wxt/*"
+      ]
+    },
+    "tsBuildInfoFile": "./node_modules/.tmp/.tsbuildinfo"
+  },
+  "include": [
+    "src-old",
+    "shared",
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".config/**/*.ts",
+    ".tests/**/*.ts",
+    "eslint.config.js",
+    "postcss.config.js",
+    "**/.server/**/*",
+    "**/.client/**/*",
+    ".react-router/types/**/*",
+    "vite.config.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}
