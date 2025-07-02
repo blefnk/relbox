@@ -1,20 +1,25 @@
 import reactLogo from "@/assets/react.svg";
-import { SayHelloInput } from "@/components/say-hello-input";
 import { Card, CardContent } from "@/primitives/card";
-import {
-  envBun,
-  envTauri,
-  envVite,
-  isBunEnv,
-  isTauriEnv,
-  isViteEnv,
-} from "@/utils/env";
+import { isBunEnv, isTauriEnv, isViteEnv } from "@/utils/env";
 
-import { APITester } from "./APITester";
+import { AppClientComponent } from "./App.client";
 import bunLogo from "./assets/bun.svg";
 import tauriLogo from "./assets/tauri.svg";
 import viteLogo from "./assets/vite.svg";
 import "./index.css";
+
+const getEnvironmentMessage = () => {
+  if (isTauriEnv) {
+    return "Click on the Tauri, Vite, and React logos to learn more.";
+  }
+  if (isBunEnv) {
+    return "Click on the Bun and React logos to learn more.";
+  }
+  if (isViteEnv) {
+    return "Click on the Vite and React logos to learn more.";
+  }
+  return "Click on the React logo to learn more.";
+};
 
 export function App() {
   return (
@@ -103,30 +108,9 @@ export function App() {
       <Card className="border-muted bg-card/50 backdrop-blur-sm">
         <CardContent className="pt-6">
           <h1 className="my-4 text-5xl leading-tight font-bold">Relbox</h1>
-          <p
-            className={`
-              relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono
-              text-sm
-            `}
-          >
-            <code>
-              environment:{" "}
-              {isTauriEnv
-                ? "tauri"
-                : isViteEnv
-                  ? "browser-vite"
-                  : isBunEnv
-                    ? "browser-bun"
-                    : "browser"}
-            </code>
-            , <code>vite: {envVite}</code>, <code>bun: {envBun}</code>,{" "}
-            <code>tauri: {envTauri}</code>
-          </p>
+          <p className="mb-8 text-zinc-800">{getEnvironmentMessage()}</p>
 
-          {/* TODO: when preparing deployment version - `dler build` should 
-          remove this (with imports if needed) when target IS NOT BUN/TAURI */}
-          {isBunEnv && <APITester />}
-          {isTauriEnv && <SayHelloInput />}
+          <AppClientComponent />
         </CardContent>
       </Card>
     </div>

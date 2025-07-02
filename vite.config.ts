@@ -2,6 +2,7 @@ import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
 import path from "node:path";
 import { defineConfig } from "vite";
+import serverActions from "vite-plugin-server-actions";
 
 const host = process.env.TAURI_DEV_HOST;
 
@@ -19,7 +20,19 @@ export default defineConfig(() => {
       "process.env.IS_VITE_ENV": JSON.stringify("true"),
     },
 
-    plugins: [react(), tailwindcss()],
+    plugins: [
+      react(), 
+      tailwindcss(),
+      serverActions({
+        validation: {
+          enabled: true,
+        },
+        openAPI: {
+          enabled: true,
+          swaggerUI: true,
+        },
+      }),
+    ],
 
     resolve: {
       alias: {
